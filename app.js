@@ -76,11 +76,24 @@ for (let i = 0; i < tileCount; i++) {
 	gameBoard.appendChild(tile);
 }
 
+function start(){
+let counter = 0;
+const timer = setInterval(() => {
+	counter++;
+	console.log(counter);
+    console.log('Interval executed every 1 second');
+document.querySelector('.timer').innerHTML = counter;
+}, 1000)
 
-// let counter = 0;
-// const timer = setInterval(() => {
-// 	counter++;
-// 	console.log(counter);
-//     console.log('Interval executed every 1 second');
-// document.querySelector('.timer').innerHTML = counter;
-// }, 1000)
+}
+
+const startBtn = document.getElementById("start-btn");
+startBtn.addEventListener("click", start);
+
+// button1.addEventListener("click", function() {
+//     // your function code here
+// });
+
+// if(counter === 60){
+	
+// }
