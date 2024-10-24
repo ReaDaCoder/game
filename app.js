@@ -75,3 +75,12 @@ for (let i = 0; i < tileCount; i++) {
 	alphabetsPicklist.splice(randomIndex, 1);
 	gameBoard.appendChild(tile);
 }
+
+
+// let counter = 0;
+// const timer = setInterval(() => {
+// 	counter++;
+// 	console.log(counter);
+//     console.log('Interval executed every 1 second');
+// document.querySelector('.timer').innerHTML = counter;
+// }, 1000)
