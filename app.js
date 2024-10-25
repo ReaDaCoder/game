@@ -82,7 +82,7 @@ for (let i = 0; i < tileCount; i++) {
 
 import axios from 'axios';
  
-axios.post('http://localhost:3001/',{
+axios.post('http://localhost:3001/userScore',{
      playerScore: 
         {
             player:'',
