@@ -15,6 +15,8 @@ function buildTile(alphabet) {
 	element.setAttribute("data-alphabet", alphabet);
 	element.setAttribute("data-revealed", "false");
 	element.textContent = "?"; 
+	element.style.display = "flex";
+	element.style.justifyContent = "center";
 
 	element.addEventListener("click", () => {
 		const revealed = element.getAttribute("data-revealed");
@@ -39,7 +41,7 @@ function buildTile(alphabet) {
 
 		if (alphabetToMatch === alphabet) {
 			element.setAttribute("data-revealed", "true");
-			activeTile.setAttribute("data-revealed", "true");
+			activeBoard.setAttribute("data-revealed", "true");
 
 			activeBoard = null;
 			awaitingEndOfMove = false;
@@ -47,6 +49,8 @@ function buildTile(alphabet) {
 
 			if (revealedCount === tileCount) {
 				alert("You won!.");
+				let player = prompt("Enter your name?");
+				window.sharedInput = player;
 			}
 
 			return;
@@ -59,7 +63,7 @@ function buildTile(alphabet) {
 			element.textContent = "?"; 
 
 			awaitingEndOfMove = false;
-			activeTile = null;
+			activeBoard = null;
 		}, 1000);
 	});
 
@@ -75,6 +79,17 @@ for (let i = 0; i < tileCount; i++) {
 	alphabetsPicklist.splice(randomIndex, 1);
 	gameBoard.appendChild(tile);
 }
+
+import axios from 'axios';
+ 
+axios.post('http://localhost:3001/',{
+     playerScore: 
+        {
+            player:'',
+            score:0,
+        }
+    
+})
 
 function start(){
 let counter = 0;
