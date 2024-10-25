@@ -6,6 +6,8 @@ const upload = multer({ dest: 'uploads/' })
 
 const router = express.Router();
 
+app.set('view engine', 'ejs');
+
 
 const app = express();
 const port = 3001;
@@ -32,8 +34,6 @@ app.get("/userScore", (req, res) => {
   app.get('/displayGame', function(req, res) {
     res.render('views/displayGame');
   });
-
-  app.set('view engine', 'ejs');
 
 
 app.listen(port, () => {
