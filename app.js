@@ -90,9 +90,6 @@ document.querySelector('.timer').innerHTML = counter;
 const startBtn = document.getElementById("start-btn");
 startBtn.addEventListener("click", start);
 
-// button1.addEventListener("click", function() {
-//     // your function code here
-// });
 
 // if(counter === 60){
 	
