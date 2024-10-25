@@ -80,16 +80,41 @@ for (let i = 0; i < tileCount; i++) {
 	gameBoard.appendChild(tile);
 }
 
-import axios from 'axios';
+
+
+// import axios from 'axios';
  
-axios.post('http://localhost:3001/userScore',{
-     playerScore: 
-        {
-            player:'',
-            score:0,
-        }
+// axios.post('http://localhost:3001/userScore',{
+//      playerScore: 
+//         {
+//             player:'',
+//             score:0,
+//         }
     
-})
+// })
+
+// Prompt for score
+// const promptForScore = () => {
+//     const username = prompt('Enter your username:');
+//     if (username) {
+//         saveScore(username, elapsedTime);
+//     }
+// };
+
+// Save score
+const saveScore = (username, time) => {
+    fetch('/api/game/scores', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, time }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data.message))
+    .catch(error => console.error('Error:', error));
+};
+
 
 function start(){
 let counter = 0;

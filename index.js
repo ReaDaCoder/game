@@ -29,6 +29,12 @@ app.get("/userScore", (req, res) => {
     res.send(`${player}'s score has been added!`)
   })
 
+  app.get('/displayGame', function(req, res) {
+    res.render('views/displayGame');
+  });
+
+  app.set('view engine', 'ejs');
+
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
