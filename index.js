@@ -1,4 +1,6 @@
 const express = require('express');
+const path = require('path');
+
 const fs = require('node:fs');
 //const uuid = require('uuid/v1');
 const multer  = require('multer')
@@ -6,16 +8,18 @@ const upload = multer({ dest: 'uploads/' })
 
 const router = express.Router();
 
-app.set('view engine', 'ejs');
-
-
 const app = express();
 const port = 3001;
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+console.log('Views directory:', path.join(__dirname, 'views'));
+
 
 let playerScore =[
 
 ]
-
 // let player = window.sharedInput;
 
 app.get("/userScore", (req, res) => {
@@ -31,8 +35,19 @@ app.get("/userScore", (req, res) => {
     res.send(`${player}'s score has been added!`)
   })
 
-  app.get('/displayGame', function(req, res) {
-    res.render('views/displayGame');
+  app.get('/', function(req, res) {
+    res.render('displayGame');
+  });
+
+  app.get('/', (req, res) => {
+    res.render('playerDetails');
+  });
+
+  app.post('/submit', (req, res) => {
+    const name = req.body.name;
+    const score = req.body.email;
+  
+    res.send(`${name}, your score is (${score}).`);
   });
 
 
