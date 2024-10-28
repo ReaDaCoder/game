@@ -45,7 +45,7 @@ app.get("/userScore", (req, res) => {
 
   app.post('/submit', (req, res) => {
     const name = req.body.name;
-    const score = req.body.email;
+    const score = req.body.score;
   
     res.send(`${name}, your score is (${score}).`);
   });

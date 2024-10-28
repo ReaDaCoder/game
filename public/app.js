@@ -7,6 +7,7 @@ const tileCount = alphabetsPicklist.length;
 let revealedCount = 0;
 let activeBoard = null;
 let awaitingEndOfMove = false;
+let timeScore = 0;
 
 function buildTile(alphabet) {
 	const element = document.createElement("div");
@@ -50,7 +51,11 @@ function buildTile(alphabet) {
 			if (revealedCount === tileCount) {
 				alert("You won!.");
 				let player = prompt("Enter your name?");
-				window.sharedInput = player;
+				let score = prompt("Time?");
+				if(player){
+					scoreBoard(player, score)
+				}
+				//window.sharedInput = player;
 			}
 
 			return;
@@ -82,38 +87,17 @@ for (let i = 0; i < tileCount; i++) {
 
 
 
-// import axios from 'axios';
+import axios from 'axios';
  
-// axios.post('http://localhost:3001/userScore',{
-//      playerScore: 
-//         {
-//             player:'',
-//             score:0,
-//         }
+axios.post('http://localhost:3001/db',{
+     playerScore: 
+        {
+            player:'',
+            score:0,
+        }
     
-// })
+})
 
-// Prompt for score
-// const promptForScore = () => {
-//     const username = prompt('Enter your username:');
-//     if (username) {
-//         saveScore(username, elapsedTime);
-//     }
-// };
-
-// Save score
-const saveScore = (username, time) => {
-    fetch('/api/game/scores', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, time }),
-    })
-    .then(response => response.json())
-    .then(data => console.log(data.message))
-    .catch(error => console.error('Error:', error));
-};
 
 
 function start(){
