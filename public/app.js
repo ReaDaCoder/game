@@ -1,3 +1,4 @@
+
 const gameBoard = document.querySelector(".game-board");
 const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 const alphabetsPicklist = [...alphabets, ...alphabets];
@@ -53,7 +54,17 @@ function buildTile(alphabet) {
 				let player = prompt("Enter your name?");
 				let score = prompt("Time?");
 				if(player){
-					scoreBoard(player, score)
+					scoreBoard(player, score);
+
+					// axios.post('http://localhost:3001/api/game/scores', {
+					// 	playerScore: {
+					// 		player: player,   // or simply `player` if ES6 shorthand is okay
+					// 		score: score      // or simply `score`
+					// 	}
+					// })
+					// .then(response => console.log('Server response:', response.data.message))
+					// .catch(error => console.error('Error:', error));
+					
 				}
 				//window.sharedInput = player;
 			}
@@ -86,17 +97,15 @@ for (let i = 0; i < tileCount; i++) {
 }
 
 
-
-import axios from 'axios';
- 
-axios.post('http://localhost:3001/db',{
-     playerScore: 
-        {
-            player:'',
-            score:0,
-        }
+// axios.post('http://localhost:3001/db',{
+//      playerScore: 
+//         {
+//             player:'',
+//             score:0,
+//         }
     
-})
+// })
+
 
 
 
@@ -117,4 +126,4 @@ startBtn.addEventListener("click", start);
 
 // if(counter === 60){
 	
-// }
+// }s
