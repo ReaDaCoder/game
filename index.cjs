@@ -10,11 +10,18 @@ const router = express.Router();
 
 const app = express();
 const port = 3001;
-app.use(express.static(path.join(__dirname, 'public')))
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 console.log('Views directory:', path.join(__dirname, 'views'));
+
+const scoresRoute = require('./public/app');
+
+app.use('/api/game', scoresRoute);
 
 
 let playerScore =[
@@ -27,12 +34,23 @@ app.get("/userScore", (req, res) => {
     res.send("Hello from Express!");
   });
 
-  app.post('/userScore', (req, res) =>{
-    const {player, score} = req.body;
+  app.post('/', (req, res) =>{
+    const {playerScore} = req.body;
 
-    playerScore.push({player, score});
+    
+    if (playerScore) {
+      const { player, score } = playerScore;
+      console.log(`Saving score: Player - ${player}, Score - ${score}`);
 
-    res.send(`${player}'s score has been added!`)
+      // Send a success message back to the client
+      res.json({ message: 'Score saved successfully!' });
+  } else {
+      res.status(400).json({ message: 'Player score data missing' });
+  }
+
+    //playerScore.push({player, score});
+
+    //res.send(`${player}'s score has been added!`)
   })
 
   app.get('/', function(req, res) {

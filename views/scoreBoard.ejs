@@ -9,5 +9,9 @@
     <h1>Score Board</h1>
     <h3>Name</h3>
     <p>score</p>
+    <% score.forEach(geek=> { %>
+        <li>ID: <%= score.id %>, Name: <%= geek.name %>, score: <%= score.score %>
+        </li>
+        <% }) %>
 </body>
 </html>

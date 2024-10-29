@@ -56,14 +56,14 @@ function buildTile(alphabet) {
 				if(player){
 					scoreBoard(player, score);
 
-					// axios.post('http://localhost:3001/api/game/scores', {
-					// 	playerScore: {
-					// 		player: player,   // or simply `player` if ES6 shorthand is okay
-					// 		score: score      // or simply `score`
-					// 	}
-					// })
-					// .then(response => console.log('Server response:', response.data.message))
-					// .catch(error => console.error('Error:', error));
+					axios.post('http://localhost:3001/api/game/scores', {
+						playerScore: {
+							player: player,   // or simply `player` if ES6 shorthand is okay
+							score: score      // or simply `score`
+						}
+					})
+					.then(response => console.log('Server response:', response.data.message))
+					.catch(error => console.error('Error:', error));
 					
 				}
 				//window.sharedInput = player;
