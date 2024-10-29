@@ -116,8 +116,10 @@ const timer = setInterval(() => {
 	console.log(counter);
     console.log('Interval executed every 1 second');
 document.querySelector('.timer').innerHTML = counter;
+if(revealedCount === tileCount){
+	clearInterval(timer);
+	}
 }, 1000)
-
 }
 
 const startBtn = document.getElementById("start-btn");
