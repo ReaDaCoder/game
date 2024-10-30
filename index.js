@@ -23,6 +23,9 @@ console.log('Views directory:', path.join(__dirname, 'views'));
 
 // app.use('/api/game', scoresRoute);
 
+var data = fs.readFileSync('data.json');
+var myObject= JSON.parse(data); 
+
 
 let playerScore =[
 

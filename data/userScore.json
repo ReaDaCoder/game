@@ -1,3 +1,9 @@
 {
-    "score":[]
+    "score":[
+        {
+            "id": 1,
+            "player": "John",
+            "score": "London"
+        }
+    ]
 }
