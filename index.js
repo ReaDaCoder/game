@@ -19,9 +19,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 console.log('Views directory:', path.join(__dirname, 'views'));
 
-const scoresRoute = require('./public/app');
+// const scoresRoute = require('./public/app');
 
-app.use('/api/game', scoresRoute);
+// app.use('/api/game', scoresRoute);
 
 
 let playerScore =[

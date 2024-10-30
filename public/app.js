@@ -1,9 +1,7 @@
-
 const gameBoard = document.querySelector(".game-board");
 const alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 const alphabetsPicklist = [...alphabets, ...alphabets];
 const tileCount = alphabetsPicklist.length;
-
 
 let revealedCount = 0;
 let activeBoard = null;
@@ -70,7 +68,7 @@ function buildTile(alphabet) {
 			}
 
 			return;
-		}
+		}             
 
 		awaitingEndOfMove = true;
 
